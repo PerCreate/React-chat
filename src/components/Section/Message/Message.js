@@ -8,6 +8,7 @@ export const Message = ({ openChat }) => {
     return (
         <div className='Message'>
             {
+                messages &&
                 Object.entries(messages).map(([currentChatName, mess]) => {
                     if (!openChat.trim()) return null
 
