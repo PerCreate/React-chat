@@ -69,7 +69,7 @@ export const Section = (props) => {
                         Object.values(chats).map((chatName, index) => {
                             return <Route
                                 key={chatName}
-                                path={'/messeger/' + chatName}
+                                path={'/messeger/' + chatName.trim()}
                                 component={() => 
                                     <Message
                                         openChat={activeChat || localStorage.getItem('openChat')}
