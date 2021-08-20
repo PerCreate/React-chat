@@ -13,7 +13,7 @@ export const Sidebar = () => {
     const inputEl = useRef(null)
 
     const setChat = event => {
-        const chatName = event.target.value.trim()
+        const chatName = event.target.value
 
         if (event.key !== 'Enter') return null
 
@@ -31,6 +31,7 @@ export const Sidebar = () => {
             [chatName]: chatName
         })
         localStorage.setItem('chats', chats)
+        console.log(JSON.parse(localStorage.getItem('chats')))
     }
 
     useEffect(() => {
