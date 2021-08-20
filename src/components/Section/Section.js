@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import { ActiveChat } from '../../context/ActiveChat'
 import { CountMessages } from '../../context/CountMessages'
 import { getCurrentDate } from '../Functions'
@@ -67,9 +67,10 @@ export const Section = (props) => {
                 <Switch>
                     {chats &&
                         Object.values(chats).map((chatName, index) => {
+                            const correctPath = chatName.replaceAll(' ','')
                             return <Route
                                 key={chatName}
-                                path={'/messeger/' + chatName.replaceAll(' ','')}
+                                path={'/messeger/' + correctPath}
                                 component={() => 
                                     <Message
                                         openChat={activeChat || localStorage.getItem('openChat')}
@@ -78,6 +79,7 @@ export const Section = (props) => {
                         })
                     }
                 </Switch>
+                <Redirect to='/' />
             </div>
             <form onSubmit={(e) => submitHandler(e)}>
                 <div className='line' />

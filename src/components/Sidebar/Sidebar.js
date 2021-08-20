@@ -31,7 +31,6 @@ export const Sidebar = () => {
             [chatName]: chatName
         })
         localStorage.setItem('chats', chats)
-        console.log(JSON.parse(localStorage.getItem('chats')))
     }
 
     useEffect(() => {

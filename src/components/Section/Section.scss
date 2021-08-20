@@ -72,5 +72,8 @@
             height: 50px;
             background-image: url(../../img/Group14.svg);
         }
+        button:active {
+            transform: scale(0.9);
+        }
     }
 }

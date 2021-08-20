@@ -23,10 +23,11 @@ export const Chapter = () => {
         <div className='Chapter'>
             {chats &&
                 Object.values(chats).map((chatName, index) => {
+                    const correctPath = chatName.replaceAll(' ','')
                     return (
                         <Link
                             key={chatName}
-                            to={'/messeger/' + chatName.replaceAll(' ','')}
+                            to={'/messeger/' + correctPath}
                             className={`chat 
                                     ${activeLink === chatName
                                     ? 'active'
