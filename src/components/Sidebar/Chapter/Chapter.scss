@@ -1,0 +1,36 @@
+.Chapter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .chat {
+        display: flex;
+        align-items: center;
+        margin-left: -10px;
+        margin-bottom: 5px;
+        padding: 0 10px 0;
+        height: 31px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 2px;
+
+        .link-icon {
+            margin-right: 15px;
+            width: 14px;
+            height: 10px;
+            background-image: url(../../../img/Vector.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+    .chat:last-child {
+        margin-bottom: 0;
+    }
+    .chat:hover {
+        background-color: #13a2d1;
+        transition: 0.3s;
+    }
+    .chat.active {
+        background-color: #0c7497;
+    }
+}

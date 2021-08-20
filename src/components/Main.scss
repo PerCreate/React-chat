@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+.Main {
+    display: grid;
+    grid-template-columns: 380px 1fr 1fr 1fr;
+    grid-template-areas: 'sidebar section section section';
+    height: 100vh;
+}

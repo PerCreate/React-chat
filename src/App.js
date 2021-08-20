@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Main } from './components/Main';
+import { Section } from './components/Section/Section';
+import { Sidebar } from './components/Sidebar/Sidebar';
+import { ActiveChatProvider } from './context/ActiveChat';
+import { CountMessagesProvider } from './context/CountMessages';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ActiveChatProvider>
+      <CountMessagesProvider>
+        <Main>
+          <Sidebar />
+          <Section />
+        </Main>
+      </CountMessagesProvider>
+    </ActiveChatProvider>
   );
 }
 
