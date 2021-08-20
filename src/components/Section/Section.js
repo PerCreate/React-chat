@@ -65,7 +65,7 @@ export const Section = (props) => {
             </div>
             <div ref={chat} className='messages'>
                 <Switch>
-                    {
+                    {chats &&
                         Object.values(chats).map((chatName, index) => {
                             return <Route
                                 key={chatName}

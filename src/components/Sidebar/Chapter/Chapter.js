@@ -21,7 +21,7 @@ export const Chapter = () => {
 
     return (
         <div className='Chapter'>
-            {
+            {chats &&
                 Object.values(chats).map((chatName, index) => {
                     return (
                         <Link
