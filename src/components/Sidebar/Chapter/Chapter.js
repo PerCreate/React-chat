@@ -26,7 +26,7 @@ export const Chapter = () => {
                     return (
                         <Link
                             key={chatName}
-                            to={'/messeger/' + chatName.trim()}
+                            to={'/messeger/' + chatName}
                             className={`chat 
                                     ${activeLink === chatName
                                     ? 'active'

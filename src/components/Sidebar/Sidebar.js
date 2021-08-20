@@ -13,7 +13,7 @@ export const Sidebar = () => {
     const inputEl = useRef(null)
 
     const setChat = event => {
-        const chatName = event.target.value
+        const chatName = event.target.value.trim()
 
         if (event.key !== 'Enter') return null
 
