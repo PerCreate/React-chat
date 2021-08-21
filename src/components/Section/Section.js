@@ -17,7 +17,7 @@ export const Section = (props) => {
 
     const chat = useRef(null)
     const inputText = useRef(null)
-
+    //Save message to localStorage and display it
     const submitHandler = (event) => {
         event.preventDefault()
         const newMessage = state.value
@@ -48,11 +48,11 @@ export const Section = (props) => {
         chat.current.scrollTop = chat.current.scrollHeight
         setCountMess(prev => prev + 1)
     }
-
+    //At first component mount make scroll at scrollHeight of section with all messages
     useEffect(() => {
         chat.current.scrollTop = chat.current.scrollHeight
     }, [])
-
+    //Scroll when add message
     useEffect(() => {
         inputText.current.focus()
         chat.current.scrollTop = chat.current.scrollHeight

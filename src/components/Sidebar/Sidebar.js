@@ -8,11 +8,14 @@ export const Sidebar = () => {
         countChats: 0,
         chatName: '',
         isBtnPress: false,
+        imgSrc: localStorage.getItem('img')
     })
 
     const inputEl = useRef(null)
+    const inputFile = useRef(null)
 
-    const setChat = event => {
+    // Set chats to localStorage
+    const setChats = event => {
         const chatName = event.target.value
 
         if (event.key !== 'Enter') return null
@@ -32,11 +35,38 @@ export const Sidebar = () => {
         })
         localStorage.setItem('chats', chats)
     }
+    // set user photo to localStorage, show users img
+    const setUserPhoto = (e) => {
+        e.preventDefault()
 
-    // const setUserPhoto = (e) => {
-    //     console.log(e.target.files[0])
-    // }
+        var file = e.target.files[0]
+        var reader = new FileReader()
 
+        if (!file || !file.type.match('image.*')) {
+            return
+        }
+
+        reader.onload = ((theFile) => (e) => {
+            var imgContainer = document.querySelector('.user-photo')
+            imgContainer.innerHTML = ['<img class="photo" src="', e.target.result,
+                '" title="', escape(theFile.name), '"/>'
+            ].join('');
+
+            localStorage.setItem('img', e.target.result);
+        })(file);
+
+        reader.readAsDataURL(file)
+    }
+    // check, if localStorage has img prop at first mount page, set this img
+    useEffect(() => {
+        if (localStorage.img) {
+
+            var imgContainer = document.querySelector('.user-photo')
+            imgContainer.innerHTML = ['<img class="photo" src="', localStorage.img,
+            '" title="test"/>'].join('');
+        }
+    }, [])
+    // focus on input, when button pressed
     useEffect(() => {
         inputEl.current && inputEl.current.focus()
     }, [state.isBtnPress])
@@ -45,15 +75,23 @@ export const Sidebar = () => {
         <div className='Sidebar'>
             <div className='btn-container'>
                 <div className='user-data'>
-                    {/* <input onChange={e => setUserPhoto(e)} type='file' className='user-photo' /> */}
-                    {/* <button /> */}
+                    <input
+                        ref={inputFile}
+                        type='file'
+                        className='upload-file'
+                        onChange={e => setUserPhoto(e)}
+                    />
+                    <div
+                        onClick={() => inputFile.current.click()}
+                        className='user-photo'
+                    />
                     <span>Pershin Konstantin</span>
                 </div>
                 <button
                     className='img'
-                    onClick={() => setState(prev => ({ 
-                        ...prev, 
-                        isBtnPress: !state.isBtnPress 
+                    onClick={() => setState(prev => ({
+                        ...prev,
+                        isBtnPress: !state.isBtnPress
                     }))}
                 />
             </div>
@@ -66,7 +104,7 @@ export const Sidebar = () => {
                             className='alert'
                             type='text'
                             ref={inputEl}
-                            onKeyPress={setChat}
+                            onKeyPress={setChats}
                             placeholder='new chat...'
                         /></>
                         : null
