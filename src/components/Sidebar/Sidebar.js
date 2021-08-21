@@ -33,9 +33,9 @@ export const Sidebar = () => {
         localStorage.setItem('chats', chats)
     }
 
-    const setUserPhoto = (e) => {
-        console.log(e.target.files[0])
-    }
+    // const setUserPhoto = (e) => {
+    //     console.log(e.target.files[0])
+    // }
 
     useEffect(() => {
         inputEl.current && inputEl.current.focus()
@@ -45,7 +45,7 @@ export const Sidebar = () => {
         <div className='Sidebar'>
             <div className='btn-container'>
                 <div className='user-data'>
-                    <input onChange={e => setUserPhoto(e)} type='file' className='user-photo' />
+                    {/* <input onChange={e => setUserPhoto(e)} type='file' className='user-photo' /> */}
                     {/* <button /> */}
                     <span>Pershin Konstantin</span>
                 </div>
