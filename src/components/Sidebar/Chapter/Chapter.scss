@@ -30,6 +30,7 @@
             width: 100%;
             display: flex;
             justify-content: flex-end;
+            
 
             button {
                 width: 14px;
@@ -37,6 +38,7 @@
                 background-image: url(../../../img/closeBtn.png);
                 background-size: cover;
                 background-repeat: no-repeat;
+                cursor: pointer;
             }
         }
     }
