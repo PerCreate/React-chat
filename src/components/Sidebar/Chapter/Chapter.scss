@@ -15,12 +15,29 @@
         border-radius: 2px;
 
         .link-icon {
+            flex-shrink: 0;
             margin-right: 15px;
             width: 14px;
             height: 10px;
             background-image: url(../../../img/Vector.svg);
             background-size: cover;
             background-repeat: no-repeat;
+        }
+        span {
+            flex-shrink: 0;
+        }
+        .close-btn {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                width: 14px;
+                height: 15px;
+                background-image: url(../../../img/closeBtn.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
         }
     }
     .chat:last-child {

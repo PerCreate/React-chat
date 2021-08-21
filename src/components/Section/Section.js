@@ -95,7 +95,10 @@ export const Section = (props) => {
                     }))}
                     onSubmit={(e) => submitHandler(e)}
                 />
-                <button onSubmit={(e) => submitHandler(e)}></button>
+                <button 
+                    className='img' 
+                    onSubmit={(e) => submitHandler(e)} 
+                />
             </form>
         </section>
     )
