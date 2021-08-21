@@ -9,7 +9,6 @@ export const Main = ({ children }) => {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 	
-
 	return (
 		<main className={'Main'}>
 				{ children }
